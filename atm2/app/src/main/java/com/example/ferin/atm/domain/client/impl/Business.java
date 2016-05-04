@@ -2,16 +2,97 @@ package com.example.ferin.atm.domain.client.impl;
 
 
 import com.example.ferin.atm.domain.client.Client;
-import com.example.ferin.atm.factories.client.ClientFactory;
 
-public class Business implements ClientFactory {
+public class Business implements Client {
 
-    public Client getClient(String idNumber, String name, String emailAddress) {
-        Client business = new Client.Builder()
-                .idNumber(idNumber)
-                .name(name)
-                .membershipType("BusinessRepositoryImpl")
-                .build();
-        return business;
+    private Long id;
+    private String idNumber;
+    private String name;
+    private String memberShipType;
+    private String emailAddress;
+
+
+    @Override
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getMembershipType() {
+        return "business";
+    }
+
+    private Business(Builder builder) {
+        this.idNumber = builder.idNumber;
+        this.name = builder.name;
+        this.memberShipType = builder.memberShipType;
+        this.id = builder.id;
+        this.emailAddress = builder.emailAddress;
+    }
+
+    public static class Builder
+    {
+        private String idNumber;
+        private String name;
+        private String memberShipType;
+        private Long id;
+        private String emailAddress;
+
+        public Builder emailAddress(String emailAddress){
+            this.emailAddress = emailAddress;
+            return this;
+        }
+
+        public Builder id(Long id)
+        {
+            this.id = id;
+            return this;
+        }
+
+        public Builder idNumber(String value){
+            this.idNumber = value;
+            return this;
+        }
+
+        public Builder name(String value){
+            this.name = value;
+            return this;
+        }
+
+        public Builder membershipType(String memberShipType){
+            this.memberShipType = memberShipType;
+            return this;
+        }
+
+        public Builder copy(Business business)
+        {
+            this.idNumber = business.idNumber;
+            this.name = business.name;
+            this.memberShipType = business.memberShipType;
+            this.id = business.id;
+            this.emailAddress = business.emailAddress;
+
+            return this;
+        }
+
+        public Business build() {
+            return new Business(this);
+        }
+
     }
 }
