@@ -4,7 +4,7 @@ import com.example.ferin.atm.domain.client.Client;
 
 public class Standard implements Client {
 
-    private long id;
+    private Long id;
     private String idNumber;
     private String name;
     private String memberShipType;
