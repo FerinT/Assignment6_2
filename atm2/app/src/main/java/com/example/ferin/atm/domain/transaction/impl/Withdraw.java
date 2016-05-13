@@ -5,6 +5,8 @@ import com.example.ferin.atm.domain.transaction.Transaction;
 
 public class Withdraw extends Transaction {
 
+    public Withdraw(){}
+
     @Override
     public Transaction handleRequest(String request) {
         if(request.equalsIgnoreCase("withdraw")) {

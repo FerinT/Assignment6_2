@@ -3,7 +3,9 @@ package com.example.ferin.atm.domain.client.impl;
 
 import com.example.ferin.atm.domain.client.Client;
 
-public class Business implements Client {
+import java.io.Serializable;
+
+public class Business implements Client, Serializable {
 
     private Long id;
     private String idNumber;

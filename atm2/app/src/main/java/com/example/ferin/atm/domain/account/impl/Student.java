@@ -4,8 +4,10 @@ package com.example.ferin.atm.domain.account.impl;
 import com.example.ferin.atm.domain.account.Account;
 import com.example.ferin.atm.domain.client.Client;
 
+import java.io.Serializable;
 
-public class Student implements Account<Student> {
+
+public class Student implements Account<Student>, Serializable {
 
     private String accountNumber;
     private double balance;

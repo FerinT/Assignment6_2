@@ -5,7 +5,9 @@ import com.example.ferin.atm.domain.account.Account;
 import com.example.ferin.atm.domain.client.Client;
 import com.example.ferin.atm.domain.client.impl.Business;
 
-public class Savings  implements Account<Savings> {
+import java.io.Serializable;
+
+public class Savings  implements Account<Savings>, Serializable {
 
     private String accountNumber;
     private double balance;

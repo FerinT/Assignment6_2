@@ -1,11 +1,16 @@
 package com.example.ferin.atm.client;
 
+import android.content.Context;
+import android.content.Intent;
 import android.test.AndroidTestCase;
 
+import com.example.ferin.atm.conf.util.App;
 import com.example.ferin.atm.domain.client.Client;
 import com.example.ferin.atm.domain.client.impl.Business;
 import com.example.ferin.atm.repository.client.BusinessRepository;
 import com.example.ferin.atm.repository.client.impl.BusinessRepositoryImpl;
+import com.example.ferin.atm.services.client.ClientService;
+import com.example.ferin.atm.services.client.impl.ClientServiceImpl;
 
 import junit.framework.Assert;
 
@@ -19,7 +24,8 @@ public class BusinessRepositoryTest extends AndroidTestCase {
     private Long id;
 
     public void testCreateReadUpdateDelete() throws Exception {
-        BusinessRepository businessRepository = new BusinessRepositoryImpl(this.getContext());
+        Context context = getContext();
+        BusinessRepository businessRepository = new BusinessRepositoryImpl(context);
 
         // CREATE
         Business client = new Business.Builder()
